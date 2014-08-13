@@ -72,7 +72,7 @@ SQUERBIT.openBookmarklet = SQUERBIT.openBookmarklet || function(url, title, cate
 }
 </script>
 <a onclick='SQUERBIT.openBookmarklet("{$url}","{$title}","{$category}")' href="javascript:void(0);">
- <img src="{$this->apiHost()}/assets/squerb-button.png" width="75" height="20" />
+ <img src="{$this->apiHost()}/assets/squerb-button.png" width="123" height="20" />
 </a>
 EOF;
     }
