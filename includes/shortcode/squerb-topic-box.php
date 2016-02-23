@@ -1,6 +1,6 @@
 <?php
 
-class ShortcodeSquerbTopicBox {
+class SquerbWidgetsShortcodeSquerbTopicBox {
 
   public function squerb_topic_box($atts) {
     $atts = shortcode_atts( array(
