@@ -23,7 +23,7 @@ class SquerbWidgetsShortcodeSquerbTopicBox {
   }
 
   function squerbTopicBoxHTMLSnippet($topic_id, $squerb_text, $no_topic_page, $show_topic_page, $show_participants, $show_opinions) {
-    add_action('wp_footer', array($this, 'squerbTopicBoxJSHook'));
+    wp_enqueue_script('squerb-widgets-topic-page', 'https://widgets.squerb.com/topic_page.js', array(), false, true);
 
     return "<div data-topic-box='{$topic_id}'"
       . ($squerb_text ? " data-squerb-text='{$squerb_text}'" : '')
@@ -32,10 +32,6 @@ class SquerbWidgetsShortcodeSquerbTopicBox {
       . ($show_participants ? " data-show-participants='{$show_participants}'" : '')
       . ($show_opinions ? " data-show-opinions='{$show_opinions}'" : '')
       . '></div>';
-  }
-
-  function squerbTopicBoxJSHook() {
-    echo '<script src="https://widgets.squerb.com/topic_page.js"></script>';
   }
 }
 

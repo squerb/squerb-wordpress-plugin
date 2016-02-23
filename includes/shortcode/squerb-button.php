@@ -30,17 +30,13 @@ class SquerbWidgetsShortcodeSquerbButton {
   }
 
   function squerbButtonHTMLSnippet($page_url, $topic_id) {
-    add_action('wp_footer', array($this, 'squerbButtonJSHook'));
+    wp_enqueue_script('squerb-widgets-topic-page', 'https://widgets.squerb.com/topic_page.js', array(), false, true);
 
     return "<div data-squerb-button='{$topic_id}'"
       . " data-page-url='{$page_url}'"
       . " data-api-key='{$this->apiKey()}'"
       . " data-api-secret='{$this->apiSecret()}'"
       . '></div>';
-  }
-
-  function squerbButtonJSHook() {
-    echo '<script src="https://widgets.squerb.com/topic_page.js"></script>';
   }
 }
 
