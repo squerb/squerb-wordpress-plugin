@@ -23,17 +23,17 @@ class SquerbWidgetsShortcodeSquerbButton {
   public function squerb_button($atts) {
     $atts = shortcode_atts( array(
       'topic_id' => '',
-      'url' => $this->currentUrl(),
+      'page_url' => $this->currentUrl(),
       ), $atts );
 
-    return $this->squerbButtonHTMLSnippet($atts['url'], $atts['topic_id']);
+    return $this->squerbButtonHTMLSnippet($atts['page_url'], $atts['topic_id']);
   }
 
-  function squerbButtonHTMLSnippet($url, $topic_id) {
+  function squerbButtonHTMLSnippet($page_url, $topic_id) {
     add_action('wp_footer', array($this, 'squerbButtonJSHook'));
 
     return "<div data-squerb-button='{$topic_id}'"
-      . " data-url='{$url}'"
+      . " data-page-url='{$page_url}'"
       . " data-api-key='{$this->apiKey()}'"
       . " data-api-secret='{$this->apiSecret()}'"
       . '></div>';
