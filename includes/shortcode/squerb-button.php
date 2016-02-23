@@ -1,6 +1,6 @@
 <?php
 
-class ShortcodeSquerbButton {
+class SquerbWidgetsShortcodeSquerbButton {
 
   private $squerb_options;
 
