@@ -34,7 +34,7 @@ class SquerbWidgetsShortcodeSquerbButton {
 
     return "<div data-squerb-button='{$topic_id}'"
       . " data-url='{$url}'"
-      . " data-api-key='{$this->apiSecret()}'"
+      . " data-api-key='{$this->apiKey()}'"
       . " data-api-secret='{$this->apiSecret()}'"
       . '></div>';
   }
