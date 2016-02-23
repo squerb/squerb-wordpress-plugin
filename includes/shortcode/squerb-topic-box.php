@@ -28,7 +28,7 @@ class SquerbWidgetsShortcodeSquerbTopicBox {
     return "<div data-topic-box='{$topic_id}'"
       . ($squerb_text ? " data-squerb-text='{$squerb_text}'" : '')
       . ($no_topic_page ? " data-no-topic-page='{$no_topic_page}'" : '')
-      . ($show_topic_page ? " data-show-participants='{$show_topic_page}'" : '')
+      . ($show_topic_page ? " data-show-topic-page='{$show_topic_page}'" : '')
       . ($show_participants ? " data-show-participants='{$show_participants}'" : '')
       . ($show_opinions ? " data-show-opinions='{$show_opinions}'" : '')
       . '></div>';
