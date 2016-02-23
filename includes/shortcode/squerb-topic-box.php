@@ -7,17 +7,17 @@ class SquerbWidgetsShortcodeSquerbTopicBox {
       'topic_id' => ''
       ), $atts );
 
-    return $this->squerbButtonHTMLSnippet($atts['topic_id']);
+    return $this->squerbTopicBoxHTMLSnippet($atts['topic_id']);
   }
 
-  function squerbButtonHTMLSnippet($topic_id) {
-    add_action('wp_footer', array($this, 'squerbButtonJSHook'));
+  function squerbTopicBoxHTMLSnippet($topic_id) {
+    add_action('wp_footer', array($this, 'squerbTopicBoxJSHook'));
 
     return "<div data-topic-box='{$topic_id}'"
       . '></div>';
   }
 
-  function squerbButtonJSHook() {
+  function squerbTopicBoxJSHook() {
     echo '<script src="https://widgets.squerb.com/topic_page.js"></script>';
   }
 }
