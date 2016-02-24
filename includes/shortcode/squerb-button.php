@@ -23,16 +23,22 @@ class SquerbWidgetsShortcodeSquerbButton {
   public function squerb_button($atts) {
     $atts = shortcode_atts( array(
       'topic_id' => '',
+      'squerb_text' => '',
       'page_url' => $this->currentUrl(),
       ), $atts );
 
-    return $this->squerbButtonHTMLSnippet($atts['page_url'], $atts['topic_id']);
+    return $this->squerbButtonHTMLSnippet(
+      $atts['page_url'],
+      $atts['topic_id'],
+      $atts['squerb_text']
+    );
   }
 
-  function squerbButtonHTMLSnippet($page_url, $topic_id) {
+  function squerbButtonHTMLSnippet($page_url, $topic_id, $squerb_text) {
     wp_enqueue_script('squerb-widgets-topic-page', 'https://widgets.squerb.com/topic_page.js', array(), false, true);
 
     return "<div data-squerb-button='{$topic_id}'"
+      . ($squerb_text ? " data-squerb-text='{$squerb_text}'" : '')
       . " data-page-url='{$page_url}'"
       . " data-api-key='{$this->apiKey()}'"
       . " data-api-secret='{$this->apiSecret()}'"
