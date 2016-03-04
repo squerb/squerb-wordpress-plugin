@@ -29,6 +29,8 @@ class SquerbWidgetsShortcodeSquerbTopicBox {
       'show_topic_page' => '',
       'show_participants' => '',
       'show_opinions' => '',
+      'api_key' => '',
+      'api_secret' => '',
       'page_url' => $this->currentUrl()
       ), $atts );
 
@@ -40,11 +42,13 @@ class SquerbWidgetsShortcodeSquerbTopicBox {
       $atts['show_topic_page'],
       $atts['show_participants'],
       $atts['show_opinions'],
+      $atts['api_key'],
+      $atts['api_secret'],
       $atts['page_url']
     );
   }
 
-  function squerbTopicBoxHTMLSnippet($topic_id, $tour_id, $squerb_text, $no_topic_page, $show_topic_page, $show_participants, $show_opinions, $page_url) {
+  function squerbTopicBoxHTMLSnippet($topic_id, $tour_id, $squerb_text, $no_topic_page, $show_topic_page, $show_participants, $show_opinions, $api_key, $api_secret, $page_url) {
     wp_enqueue_script('squerb-widgets-topic-page', 'https://widgets.squerb.com/topic_page.js', array(), false, true);
 
     return "<div data-topic-box='{$topic_id}'"
@@ -54,9 +58,9 @@ class SquerbWidgetsShortcodeSquerbTopicBox {
       . ($show_topic_page ? " data-show-topic-page='{$show_topic_page}'" : '')
       . ($show_participants ? " data-show-participants='{$show_participants}'" : '')
       . ($show_opinions ? " data-show-opinions='{$show_opinions}'" : '')
+      . ($api_key ? " data-api-key='{$api_key}'" : '')
+      . ($api_secret ? " data-api-secret='{$api_secret}'" : '')
       . " data-page-url='{$page_url}'"
-      . " data-api-key='{$this->apiKey()}'"
-      . " data-api-secret='{$this->apiSecret()}'"
       . '></div>';
   }
 }
